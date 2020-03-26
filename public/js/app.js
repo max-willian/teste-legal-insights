@@ -2115,6 +2115,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NovoPedido",
   data: function data() {
@@ -2269,6 +2275,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2523,6 +2535,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditarProcesso",
   data: function data() {
@@ -2659,6 +2677,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38725,7 +38749,20 @@ var render = function() {
                 _vm._v(
                   "\n                " +
                     _vm._s(_vm.error.message) +
-                    "\n            "
+                    "\n\n                "
+                ),
+                _c(
+                  "ul",
+                  _vm._l(_vm.error.errors, function(error) {
+                    return _c("li", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(error[0]) +
+                          "\n                    "
+                      )
+                    ])
+                  }),
+                  0
                 )
               ]
             )
@@ -39150,7 +39187,20 @@ var render = function() {
                 _vm._v(
                   "\n                " +
                     _vm._s(_vm.error.message) +
-                    "\n            "
+                    "\n\n                "
+                ),
+                _c(
+                  "ul",
+                  _vm._l(_vm.error.errors, function(error) {
+                    return _c("li", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(error[0]) +
+                          "\n                    "
+                      )
+                    ])
+                  }),
+                  0
                 )
               ]
             )
@@ -39577,7 +39627,20 @@ var render = function() {
                 _vm._v(
                   "\n                " +
                     _vm._s(_vm.error.message) +
-                    "\n            "
+                    "\n\n                "
+                ),
+                _c(
+                  "ul",
+                  _vm._l(_vm.error.errors, function(error) {
+                    return _c("li", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(error[0]) +
+                          "\n                    "
+                      )
+                    ])
+                  }),
+                  0
                 )
               ]
             )
@@ -39936,7 +39999,22 @@ var render = function() {
               { staticClass: "alert alert-danger", attrs: { role: "alert" } },
               [
                 _vm._v(
-                  "\n            " + _vm._s(_vm.error.message) + "\n        "
+                  "\n            " +
+                    _vm._s(_vm.error.message) +
+                    "\n\n            "
+                ),
+                _c(
+                  "ul",
+                  _vm._l(_vm.error.errors, function(error) {
+                    return _c("li", [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(error[0]) +
+                          "\n                "
+                      )
+                    ])
+                  }),
+                  0
                 )
               ]
             )

@@ -27,13 +27,13 @@ class ProcessoController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'numero_unico_processo' => 'required',
+            'numero_unico_processo' => 'required|max:40',
             'data_distribuicao' => 'required',
-            'reu_principal' => 'required',
-            'valor_causa' => 'required',
-            'vara' => 'required',
-            'comarca' => 'required',
-            'estado' => 'required'
+            'reu_principal' => 'required|max:200',
+            'valor_causa' => 'required|numeric',
+            'vara' => 'required|max:60',
+            'comarca' => 'required|max:100',
+            'estado' => 'required|max:2'
         ]);
 
         $processo = Processo::create($validated);
@@ -62,13 +62,13 @@ class ProcessoController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'numero_unico_processo' => 'required',
+            'numero_unico_processo' => 'required|max:40',
             'data_distribuicao' => 'required',
-            'reu_principal' => 'required',
-            'valor_causa' => 'required',
-            'vara' => 'required',
-            'comarca' => 'required',
-            'estado' => 'required'
+            'reu_principal' => 'required|max:200',
+            'valor_causa' => 'required|numeric',
+            'vara' => 'required|max:60',
+            'comarca' => 'required|max:100',
+            'estado' => 'required|max:2'
         ]);
 
         $processo = Processo::where('id', $id)->update($validated);

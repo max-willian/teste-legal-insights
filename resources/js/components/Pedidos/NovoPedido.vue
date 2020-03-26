@@ -12,6 +12,12 @@
             <div class="card-body">
                 <div class="alert alert-danger" role="alert" v-if="error">
                     {{error.message}}
+
+                    <ul>
+                        <li v-for="error in error.errors">
+                            {{error[0]}}
+                        </li>
+                    </ul>
                 </div>
                 <form @submit.prevent="add">
                     <div class="row">

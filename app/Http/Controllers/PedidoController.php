@@ -27,9 +27,9 @@ class PedidoController extends Controller
     public function store(Request $request, $processoId)
     {
         $validated = $request->validate([
-            'tipo_pedido_id' => 'required',
-            'valor_risco_provavel' => 'required',
-            'status' => 'required'
+            'tipo_pedido_id' => 'required|numeric',
+            'valor_risco_provavel' => 'required|numeric',
+            'status' => 'required|max:20'
         ]);
 
         $validated['processo_id'] = $processoId;
@@ -60,9 +60,9 @@ class PedidoController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'tipo_pedido_id' => 'required',
-            'valor_risco_provavel' => 'required',
-            'status' => 'required'
+            'tipo_pedido_id' => 'required|numeric',
+            'valor_risco_provavel' => 'required|numeric',
+            'status' => 'required|max:20'
         ]);
 
         $pedido = Pedido::where('id', $id)->update($validated);
