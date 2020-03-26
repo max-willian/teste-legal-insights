@@ -1,5 +1,11 @@
 <template>
-    <div class="card">
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+            </ol>
+        </nav>
+        <div class="card">
         <h5 class="card-header">Processos</h5>
         <div class="card-body">
             <router-link to="/processos/novo" class="btn btn-primary">Novo Processo</router-link>
@@ -36,6 +42,9 @@
                         <td>{{ processo.comarca }}</td>
                         <td>{{ processo.estado }}</td>
                         <td>
+                            <router-link :to="`/processos/${processo.id}/pedidos`">Pedidos</router-link>
+                        </td>
+                        <td>
                             <router-link :to="`/processos/${processo.id}/editar`">Editar</router-link>
                         </td>
                         <td>
@@ -44,14 +53,12 @@
                         <td>
                             <a href="#" v-on:click.prevent="deletar(processo.id)">Excluir</a>
                         </td>
-                        <td>
-                            <router-link :to="`/processos/${processo.id}/pedidos`">Pedidos</router-link>
-                        </td>
                     </tr>
                 </template>
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
 </template>
 
