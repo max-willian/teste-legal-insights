@@ -31,7 +31,7 @@
                     </template>
                     <template v-else>
                         <tr v-for="pedido in pedidos" :key="pedido.id">
-                            <td>{{ pedido.valor_risco_provavel }}</td>
+                            <td>R$ {{ formatPrice(pedido.valor_risco_provavel) }}</td>
                             <td>{{ pedido.tipo_pedido.nome }}</td>
                             <td>{{ pedido.status }}</td>
                             <td>
@@ -76,6 +76,10 @@
 
                     alert('Deletado com sucesso');
                 })
+            },
+            formatPrice(value) {
+                let val = (value/1).toFixed(2).replace('.', ',')
+                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
             }
         }
     }

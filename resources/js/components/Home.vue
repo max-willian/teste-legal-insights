@@ -35,9 +35,9 @@
                 <template v-else>
                     <tr v-for="processo in processos" :key="processo.id">
                         <td>{{ processo.numero_unico_processo }}</td>
-                        <td>{{ processo.data_distribuicao }}</td>
+                        <td>{{ processo.data_distribuicao.split('-').reverse().join('/') }}</td>
                         <td>{{ processo.reu_principal }}</td>
-                        <td>{{ processo.valor_causa }}</td>
+                        <td>R$ {{ formatPrice(processo.valor_causa) }}</td>
                         <td>{{ processo.vara }}</td>
                         <td>{{ processo.comarca }}</td>
                         <td>{{ processo.estado }}</td>
@@ -83,6 +83,10 @@
 
                     alert('Deletado com sucesso');
                 })
+            },
+            formatPrice(value) {
+                let val = (value/1).toFixed(2).replace('.', ',')
+                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
             }
         }
     }

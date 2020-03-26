@@ -2022,6 +2022,10 @@ __webpack_require__.r(__webpack_exports__);
 
         alert('Deletado com sucesso');
       });
+    },
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed(2).replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
   }
 });
@@ -2260,6 +2264,10 @@ __webpack_require__.r(__webpack_exports__);
 
         alert('Deletado com sucesso');
       });
+    },
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed(2).replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
   }
 });
@@ -38502,11 +38510,25 @@ var render = function() {
                           _vm._v(_vm._s(processo.numero_unico_processo))
                         ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(processo.data_distribuicao))]),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              processo.data_distribuicao
+                                .split("-")
+                                .reverse()
+                                .join("/")
+                            )
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(processo.reu_principal))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(processo.valor_causa))]),
+                        _c("td", [
+                          _vm._v(
+                            "R$ " +
+                              _vm._s(_vm.formatPrice(processo.valor_causa))
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(processo.vara))]),
                         _vm._v(" "),
@@ -39008,7 +39030,14 @@ var render = function() {
                   ? [_vm._m(1)]
                   : _vm._l(_vm.pedidos, function(pedido) {
                       return _c("tr", { key: pedido.id }, [
-                        _c("td", [_vm._v(_vm._s(pedido.valor_risco_provavel))]),
+                        _c("td", [
+                          _vm._v(
+                            "R$ " +
+                              _vm._s(
+                                _vm.formatPrice(pedido.valor_risco_provavel)
+                              )
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(pedido.tipo_pedido.nome))]),
                         _vm._v(" "),
